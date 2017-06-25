@@ -1,0 +1,14 @@
+.backgrund {
+	//background: url("http://www.wallpaperup.com/uploads/wallpapers/2015/09/04/799397/b18729600e501a92ccf788692a82e3ca.jpg") no-repeat center center fixed;
+	background: url("http://1.bp.blogspot.com/-84pAfYl1OLs/Tw1bsIpLHdI/AAAAAAAAARc/mCbjcIOdVgA/s1600/crystal_cave_bkg.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+
+.img_size {
+   max-width: 60px;
+   max-height: 60px;
+}
