@@ -3,44 +3,68 @@
   $(document).ready(function() {
     var numberOfWins   = 0;
     var numberOfLoses  = 0;
-    var randomNumber   = Math.floor(Math.random() * 50) + 20;
-    var blueSapphire   = Math.floor(Math.random() * 10) + 1;
-    var emerald        = Math.floor(Math.random() * 10) + 2;
-    var garnet         = Math.floor(Math.random() * 10) + 3;
-    var yellowSapphire = Math.floor(Math.random() * 10) + 4;
+    var score          = 0;
+    var randomNumber   = 0;
+    var blueSapphire   = 0;
+    var emerald        = 0;
+    var garnet         = 0;
+    var yellowSapphire = 0;
 
-   $("#random").text(randomNumber);
+    createRandomValue();   
 
    $("#Blue-Sapphire").click(function(event) {
-      randomNumber -= blueSapphire;
-      checkWinner();
+      trackScore(blueSapphire);
     });  
 
     $("#Emerald").click(function(event) {
-      randomNumber -= emerald;
-      checkWinner();
+      trackScore(emerald);
     });  
 
-    $("#Garnet").click(function(event) {        
-      randomNumber -= garnet;
-      checkWinner();
+    $("#Garnet").click(function(event) {
+      trackScore(garnet);
     });  
 
     $("#Yellow-Sapphire").click(function(event) {
-      randomNumber -= yellowSapphire;
-      checkWinner();
+      trackScore(yellowSapphire);
     });
 
-    function checkWinner() {
+    function createRandomValue() { 
+      randomNumber   = Math.floor(Math.random() * 50) + 20;
       $("#random").text(randomNumber);
-      if (randomNumber == 0) {
+      blueSapphire   = Math.floor(Math.random() * 10) + 1;
+      emerald        = Math.floor(Math.random() * 10) + 2;
+      garnet         = Math.floor(Math.random() * 10) + 3;
+      yellowSapphire = Math.floor(Math.random() * 10) + 4;    
+    }
+
+    function checkWinner() {      
+      if (randomNumber === score) {
         numberOfWins++;
+        $("#wins").text("You've Won");
+        $("#wins").append("Wins: " + numberOfWins);
+        alert("You've Won");
+        reset();
+      }
+      else if (score > randomNumber) {
+        numberOfLoses++;
+        $("#loses").text("Loses: " + numberOfLoses);
+        alert("You've lost");
+        reset();
+      }
         $("#wins").text("Wins: " + numberOfWins);
-      }
-    else if (randomNumber < 0) {
-      numberOfLoses++;
-      $("#loses").text("Loses: " + numberOfLoses);
-      }
+        $("#loses").text("Loses: " + numberOfLoses);      
     };
     
+    function trackScore(crystalValue) {
+      score = score + crystalValue;
+      $("#score").text("score: " + score);      
+      checkWinner();
+    }
+  
+    function reset() {       
+      $("#score").empty();
+      alert("Game is being RESET for new Game");
+      createRandomValue();
+    }
+
   });
