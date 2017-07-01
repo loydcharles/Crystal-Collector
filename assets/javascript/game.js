@@ -29,6 +29,7 @@
     });
 
     function createRandomValue() { 
+      score          = 0;
       randomNumber   = Math.floor(Math.random() * 50) + 20;
       $("#random").text(randomNumber);
       blueSapphire   = Math.floor(Math.random() * 10) + 1;
@@ -49,6 +50,7 @@
         numberOfLoses++;
         $("#loses").text("Loses: " + numberOfLoses);
         alert("You've lost");
+
         reset();
       }
         $("#wins").text("Wins: " + numberOfWins);
