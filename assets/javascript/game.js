@@ -53,13 +53,13 @@
 
         reset();
       }
-        $("#wins").text("Wins: " + numberOfWins);
-        $("#loses").text("Loses: " + numberOfLoses);      
+        $("#wins").text(numberOfWins);
+        $("#loses").text(numberOfLoses);      
     };
     
     function trackScore(crystalValue) {
       score = score + crystalValue;
-      $("#score").text("score: " + score);      
+      $("#score").text(score);
       checkWinner();
     }
   
